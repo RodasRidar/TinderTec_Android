@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_home"
+        android:title="Inicio"
+        android:icon="@drawable/tinder"
+        />
+    <item
+        android:id="@+id/nav_profile"
+        android:title="Perfil"
+        android:icon="@drawable/ic_profile_24"
+        />
+    <item
+        android:id="@+id/nav_matchs"
+        android:title="Matchs"
+        android:icon="@drawable/ic_message_24"
+        />
+    <item
+        android:id="@+id/nav_likes"
+        android:title="Me Gustas"
+        android:icon="@drawable/ic_like_24"
+        />
+    <item
+        android:id="@+id/nav_subs"
+        android:title="Subscripcion"
+        android:icon="@drawable/ic_subscription_24"
+        />
+    <item
+        android:id="@+id/nav_close_session"
+        android:title="Cerrar Sesion"
+        android:icon="@drawable/ic_power__24"
+        />
+</menu>
