@@ -3,4 +3,5 @@
     <color name="colorPrimary">#fc4d6a</color>
     <color name="colorPrimaryDark">#fc3177</color>
     <color name="colorAccent">#ffff</color>
+    <color name="background_textcard">#53292929</color>
 </resources>
