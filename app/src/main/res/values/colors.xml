@@ -3,4 +3,16 @@
     <color name="colorPrimary">#fc4d6a</color>
     <color name="colorPrimaryDark">#fc3177</color>
     <color name="colorAccent">#ffff</color>
+
+
+
+ <color name="background_textcard">#53292929</color>
+    <color name="primary">#607D8B</color>
+    <color name="primary_dark">#455A64</color>
+    <color name="primary_light">#CFD8DC</color>
+    <color name="accent">#9E9E9E</color>
+    <color name="primary_text">#212121</color>
+    <color name="secondary_text">#757575</color>
+    <color name="error">#f00</color>
+    <color name="editTextColorBlack">#7C7C7C</color>
 </resources>
