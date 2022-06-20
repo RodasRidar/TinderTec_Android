@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:fitsSystemWindows="true"
-    tools:context=".Fragment_like">
+    tools:context=".Fragment_like"
+    android:layout_gravity="end">
 
 
 
@@ -26,7 +27,6 @@
             android:id="@+id/recycleViewListsUser"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-
             />
 
     </LinearLayout>

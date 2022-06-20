@@ -82,7 +82,9 @@ public class MainActivity extends AppCompatActivity {
                                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                                 .addToBackStack(null).commit();
                         break;
-
+                    case R.id.nav_close_session:
+                        finishAffinity();
+                        break;
                 }
 
                 dl.closeDrawer(GravityCompat.START);

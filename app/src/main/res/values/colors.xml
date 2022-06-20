@@ -4,4 +4,5 @@
     <color name="colorPrimaryDark">#fc3177</color>
     <color name="colorAccent">#ffff</color>
     <color name="background_textcard">#53292929</color>
+    <color name="editTextColorBlack">#7C7C7C</color>
 </resources>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".LoginActivity"
+    android:background="@drawable/fondo_carga">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="1">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.6">
+
+                        <ImageView
+                            android:id="@+id/logo"
+                            android:layout_width="130dp"
+                            android:layout_height="130dp"
+                            android:layout_centerInParent="true"
+                            android:background="@drawable/tinder64px"></ImageView>
+                </RelativeLayout>
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.4"
+                    android:fillViewport="true">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="32dp">
+                                //TEXTO USUARIO
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:hint="Correo"
+                                    android:textSize="20dp"></TextView>
+                                //texto usuario
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/loginCorreo"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint=""></com.google.android.material.textfield.TextInputEditText>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:hint="Contraseña"
+                                    android:textSize="20dp"></TextView>
+                                //TEXTO CONRASEÑA
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/loginContraseña"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:inputType="textPassword"></com.google.android.material.textfield.TextInputEditText>
+
+                                //BOTON INICIAR SESION
+
+                                <Button
+                                    android:id="@+id/buttonLogin"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@color/colorPrimary"
+                                    android:text="Iniciar Sesion"
+                                    android:textColor="@color/colorAccent"></Button>
+
+                                //APARTADO REGISTRARSE
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center">
+
+                                        <TextView
+                                            android:id="@+id/dontHaveAccount"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="No tienes una cuenta? "
+                                            android:textColor="#000"
+                                            android:textSize="15sp"
+                                            android:textStyle="bold"></TextView>
+
+                                        <TextView
+                                            android:id="@+id/loginCrearCuenta"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_toRightOf="@id/dontHaveAccount"
+                                            android:onClick="goCreateAccount"
+                                            android:text="Crea una aqui!"
+                                            android:textColor="#FFFF"
+                                            android:textSize="15sp"
+                                            android:textStyle="bold"></TextView>
+
+                                </RelativeLayout>
+                        </LinearLayout>
+                </ScrollView>
+        </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
