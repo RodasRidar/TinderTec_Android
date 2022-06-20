@@ -17,4 +17,13 @@
     </style>
 
 
+
+    <style name="EditTextBlack" parent="Theme.AppCompat.Light">
+        <item name="android:textColorHint">@color/editTextColorBlack</item>
+        <item name="android:textColorPrimary">@color/editTextColorBlack</item>
+        <item name="colorAccent">@color/editTextColorBlack</item>
+        <item name="colorControlNormal">@color/editTextColorBlack</item>
+        <item name="colorControlActivated">@color/editTextColorBlack</item>
+    </style>
+
 </resources>
