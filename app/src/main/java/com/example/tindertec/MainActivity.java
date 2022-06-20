@@ -67,11 +67,12 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                     case R.id.nav_likes:
-                        LikesFragment likesFragment = new LikesFragment();
+                        Fragment_like likesFragment = new Fragment_like();
                         getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.fragment_container_view, likesFragment)
                                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                                 .addToBackStack(null).commit();
+
                         break;
 
                     case R.id.nav_subs:
@@ -81,7 +82,9 @@ public class MainActivity extends AppCompatActivity {
                                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                                 .addToBackStack(null).commit();
                         break;
-
+                    case R.id.nav_close_session:
+                        finishAffinity();
+                        break;
                 }
 
                 dl.closeDrawer(GravityCompat.START);
