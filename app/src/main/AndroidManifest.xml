@@ -12,6 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+        <activity android:name=".EditProfileFragment"></activity>
+        <activity android:name=".GalleryFragment" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+
+
         <activity android:name=".RegistroActivity">
         </activity>
 

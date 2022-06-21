@@ -2,7 +2,10 @@
 <resources>
     <color name="colorPrimary">#fc4d6a</color>
     <color name="colorPrimaryDark">#fc3177</color>
-    <color name="colorAccent">#ffff</color>
+
+    <color name="colorAccent">#FFFFFF</color>
+    <color name="infoColor">#E8E8E8</color>
+
 
 
 
@@ -15,4 +18,5 @@
     <color name="secondary_text">#757575</color>
     <color name="error">#f00</color>
     <color name="editTextColorBlack">#7C7C7C</color>
+
 </resources>
