@@ -43,8 +43,8 @@ public class HomeFragment extends Fragment{
     private CardStackAdapter adapter;
     private ImageButton imageButton;
     private ImageButton imageButton2;
-
-
+    private static String  ARG_PARAM1="";
+    private static String  ARG_PARAM2="";
     public HomeFragment() {
         // Required empty public constructor
 
@@ -64,10 +64,6 @@ public class HomeFragment extends Fragment{
 
         super.onCreate(savedInstanceState);
 
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
 
 
     }

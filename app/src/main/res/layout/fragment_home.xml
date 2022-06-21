@@ -4,13 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MatchFragment">
+    tools:context=".MatchFragment"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:layout_marginTop="50dp"
+    android:layout_marginBottom="50dp"
+    >
 
 
     <com.yuyakaido.android.cardstackview.CardStackView
             android:id="@+id/card_stack_view"
-            android:layout_width="350dp"
-            android:layout_height="400dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:background="@android:color/transparent"
             android:clipToPadding="false"
             android:padding="8dp"
