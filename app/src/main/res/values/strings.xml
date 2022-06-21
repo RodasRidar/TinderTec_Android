@@ -4,4 +4,15 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="open_drawer">Open</string>
     <string name="close_drawer">Close</string>
+    <string name="profile_name">Pierina Lopez, 20</string>
+    <string name="profile_career">Computación e Informática</string>
+    <string name="profile_desc">Lorem ipsum dobresium lorem ipsum lorem ipsum dobresium. Lorem ipsum dobresium</string>
+    <string name="gallery">Galeria</string>
+    <string name="remove_user">Eliminar cuenta</string>
+    <string name="text_button_saveChanges">Guardar cambios</string>
+    <string name="hint_sede">Sede</string>
+    <string name="hint_career">Carrera</string>
+    <string name="hint_interest">Interés de Género</string>
+    <string name="hint_name">Nombre Público</string>
+    <string name="hint_info">Descripción del Perfil</string>
 </resources>
