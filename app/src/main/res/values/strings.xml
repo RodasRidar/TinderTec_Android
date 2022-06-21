@@ -4,6 +4,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="open_drawer">Open</string>
     <string name="close_drawer">Close</string>
+
     <string name="profile_name">Pierina Lopez, 20</string>
     <string name="profile_career">Computación e Informática</string>
     <string name="profile_desc">Lorem ipsum dobresium lorem ipsum lorem ipsum dobresium. Lorem ipsum dobresium</string>
@@ -15,4 +16,19 @@
     <string name="hint_interest">Interés de Género</string>
     <string name="hint_name">Nombre Público</string>
     <string name="hint_info">Descripción del Perfil</string>
+
+<string name="continuar">Continuar</string>
+    <string name="titulo">Informacion de tarjeta</string>
+    <string name="numerotarjeta">No. Tarjeta</string>
+    <string name="nombre">Nombre</string>
+    <string name="mes">Mes</string>
+    <string name="año">Año</string>
+    <string name="cvv">CVV</string>
+    <string name="scan">Pagar</string>
+    <string name="faltancampos">Faltan campos requeridos</string>
+    <string name="guardadoexitoso">Tarjeta guardada con exito</string>
+
+    <string name="UsuarioName">Daniela</string>
+
+
 </resources>
