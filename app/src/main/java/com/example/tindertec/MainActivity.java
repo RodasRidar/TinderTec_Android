@@ -9,7 +9,9 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
+import com.example.tindertec.models.Usuario;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.Objects;
@@ -19,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private ActionBarDrawerToggle toogle ;
     private DrawerLayout dl ;
     private NavigationView nv;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +36,12 @@ public class MainActivity extends AppCompatActivity {
         toogle.syncState();
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        String nombreUsu=getIntent().getStringExtra("Nombre");
+        Usuario usu;
+        usu=LoginActivity.userInSession;
+        //Toast toast= Toast.makeText(this,"Bienvenido"+nombreUsu,Toast.LENGTH_LONG);
+        Toast toast= Toast.makeText(this,"Bienvenido"+usu.getDescripcion(),Toast.LENGTH_LONG);
+        toast.show();
 
 
 

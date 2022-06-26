@@ -45,8 +45,8 @@
                                     android:layout_height="wrap_content"
                                     android:hint="Correo"
                                     android:textSize="20dp"></TextView>
-                                //texto usuario
 
+                                //texto usuario
                                 <com.google.android.material.textfield.TextInputEditText
                                     android:id="@+id/loginCorreo"
                                     android:layout_width="match_parent"
@@ -61,7 +61,7 @@
                                 //TEXTO CONRASEÑA
 
                                 <com.google.android.material.textfield.TextInputEditText
-                                    android:id="@+id/loginContraseña"
+                                    android:id="@+id/loginContra"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:inputType="textPassword"></com.google.android.material.textfield.TextInputEditText>
@@ -74,7 +74,9 @@
                                     android:layout_height="wrap_content"
                                     android:background="@color/colorPrimary"
                                     android:text="Iniciar Sesion"
-                                    android:textColor="@color/colorAccent"></Button>
+                                    android:textColor="@color/colorAccent"
+                                    android:onClick="goLogin"
+                                    ></Button>
 
                                 //APARTADO REGISTRARSE
 

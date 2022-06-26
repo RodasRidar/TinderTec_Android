@@ -14,14 +14,16 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="32dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="20dp"
             android:orientation="vertical">
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:theme="@style/EditTextBlack"
-                android:layout_marginTop="10dp">
+                >
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/registroNombre"
                     android:layout_width="match_parent"
@@ -44,6 +46,32 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/EditTextBlack"
+            android:layout_marginTop="10dp">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/registroDescripcion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Descripcion">
+            </com.google.android.material.textfield.TextInputEditText>
+        </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/EditTextBlack"
+                android:layout_marginTop="10dp">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/registroFoto1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Url de Foto">
+                </com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:theme="@style/EditTextBlack"
@@ -58,29 +86,18 @@
             </com.google.android.material.textfield.TextInputLayout>
 
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:theme="@style/EditTextBlack"
-                android:layout_marginTop="10dp">
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/registroConfirmarContraseña"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Confirmar Contraseña"
-                    android:inputType="textPassword">
-                </com.google.android.material.textfield.TextInputEditText>
-            </com.google.android.material.textfield.TextInputLayout>
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="94dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingTop="20dp"
+                >
 
                 <LinearLayout
                     android:layout_width="150dp"
                     android:layout_height="100dp"
                     android:orientation="vertical">
-                    //COMBO BOX GENERO
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -97,7 +114,6 @@
                         android:layout_marginLeft="8dp"
                         android:layout_marginTop="10dp"></Spinner>
                 </LinearLayout>
-                //COMBO BOX GENERO INTERES
 
                 <LinearLayout
                     android:layout_width="150dp"
@@ -119,11 +135,12 @@
                         android:layout_marginTop="10dp"></Spinner>
                 </LinearLayout>
             </LinearLayout>
-            //
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_marginTop="20dp">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -141,30 +158,48 @@
                     android:onClick="openDatePicker">
                 </Button>
             </LinearLayout>
-            <com.google.android.material.textfield.TextInputLayout
+
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:theme="@style/EditTextBlack"
-                android:layout_marginTop="10dp">
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/registroSede"
-                    android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="Sede">
-                </com.google.android.material.textfield.TextInputEditText>
-            </com.google.android.material.textfield.TextInputLayout>
-            <com.google.android.material.textfield.TextInputLayout
+                    android:layout_marginTop="10dp"
+                    android:theme="@style/EditTextBlack"
+                    android:hint="Sede"
+                    android:textSize="18dp"></TextView>
+
+                <Spinner
+                    android:id="@+id/comboSede"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="10dp"></Spinner>
+            </LinearLayout>
+
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:theme="@style/EditTextBlack"
-                android:layout_marginTop="10dp">
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/registroCarrera"
-                    android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="Carrera">
-                </com.google.android.material.textfield.TextInputEditText>
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_marginTop="10dp"
+                    android:theme="@style/EditTextBlack"
+                    android:hint="Carrera"
+                    android:textSize="18dp"></TextView>
+
+                <Spinner
+                    android:id="@+id/comboCarrera"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="10dp"></Spinner>
+            </LinearLayout>
             <Button
                 android:id="@+id/btnRegistro"
                 android:layout_width="match_parent"
@@ -173,7 +208,7 @@
                 android:layout_marginTop="20dp"
                 android:background="@color/colorPrimary"
                 android:textColor="#FFFF"
-                android:onClick="">
+               >
             </Button>
         </LinearLayout>
     </ScrollView>

@@ -102,9 +102,14 @@ public class HomeFragment extends Fragment{
                 if (direction == Right){
 
                     Toast.makeText(getContext(), "Me gusta" + nombre , Toast.LENGTH_SHORT).show();
+                    //Ejecutar el servicio insertar /LIKE
+                    // params.put("codUsuarioLike" ,{TU CAJA DE TEXTO});
+                    //En ON REPONSE recuperar String, Si es match mostrar animacion o TOAST.
                 }
                 if (direction == Left){
                     Toast.makeText(getContext(), "No me gusta" + nombre, Toast.LENGTH_SHORT).show();
+                    //Ejecutar el servicio insertar /DISLIKE
+                    // params.put("codUsuarioDisLike" ,{TU CAJA DE TEXTO});
                 }
 
                 //Paginating
@@ -168,13 +173,18 @@ public class HomeFragment extends Fragment{
 
 
     private List<ItemModel> addList() {
+//String url="http://192.168.3.26:8080/BuscarAmistad/Inicio";
+        //Recuperar lstUsuarios del servidor
+        //Llenar   List<ItemModel> con la lista obtenida del servidor.
         List<ItemModel> items = new ArrayList<>();
-        items.add(new ItemModel(R.drawable.sample1, "Markonah", "24", "Jember"));
+        items.add(new ItemModel(R.drawable.sample1, "Richard Rodas", "24", "Lima"));
+        //Cambiar el atributo Imagen , debe ser de tipo String ya que devuelve un String
         items.add(new ItemModel(R.drawable.sample2, "Marpuah", "20", "Malang"));
         items.add(new ItemModel(R.drawable.sample3, "Sukijah", "27", "Jonggol"));
         items.add(new ItemModel(R.drawable.sample4, "Markobar", "19", "Bandung"));
         items.add(new ItemModel(R.drawable.sample5, "Marmut", "25", "Hutan"));
 
+        //items.add(lista[0])
 
         return items;
     }
