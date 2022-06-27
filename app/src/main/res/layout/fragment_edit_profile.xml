@@ -21,9 +21,11 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/editTextColorBlack"
                 android:layout_marginTop="10dp">
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/email"
+                    android:id="@+id/txtNombre"
+                    android:textColor="@color/editTextColorBlack"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/hint_name">
@@ -34,66 +36,105 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/editTextColorBlack"
                 android:layout_marginTop="10dp">
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/name"
+                    android:id="@+id/txtInfo"
+                    android:textColor="@color/editTextColorBlack"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/hint_info">
                 </com.google.android.material.textfield.TextInputEditText>
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!--Ingresar Interes-->
+            <!--Ingresar Interes
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
                 android:layout_marginTop="10dp">
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/username"
+                    android:id="@+id/txtInteresGen"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/hint_interest">
                 </com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout> -->
+
+            <!--Ingresar Interes-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">>
+                <Spinner
+                    android:id="@+id/cboInteresGen"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                </Spinner>
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!--Ingresar Carrera-->
+            <!--Ingresar Carrera
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp">
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/password"
+                    android:id="@+id/txtCarrera"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/hint_career"
                     android:inputType="textPassword">
                 </com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout> -->
+
+            <!--Ingresar Carrera-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">>
+                <Spinner
+                    android:id="@+id/cboCarrera"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </Spinner>
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!--Seleccionar Sede-->
+            <!--Seleccionar Sede
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp">
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/password2"
+                    android:id="@+id/txtSede"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/hint_sede">
                 </com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout> -->
+
+            <!--Ingresar Sede-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">>
+                <Spinner
+                    android:id="@+id/cboSede"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </Spinner>
             </com.google.android.material.textfield.TextInputLayout>
 
             <!--Boton-->
             <Button
-                android:id="@+id/createAccount"
+                android:id="@+id/btnGuardar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="@string/text_button_saveChanges"
                 android:textStyle="bold"
-                android:theme="@style/RaisedButtonDark"
-                android:onClick="goViewProfile">
+                android:theme="@style/RaisedButtonDark">
+                //android:onClick="xxx">
             </Button>
         </LinearLayout>
     </ScrollView>

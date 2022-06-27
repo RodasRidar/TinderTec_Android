@@ -12,9 +12,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.tindertec.models.Usuario;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 
 public class ProfileFragment extends Fragment {
 
@@ -22,12 +30,15 @@ public class ProfileFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-
+    private TextView nombreyedad;
     private String mParam1;
     private String mParam2;
     FloatingActionButton btnEdit;
+
+
     Button btnEliminar;
     Button btnGaleria;
+    Usuario user ;
     public ProfileFragment() {
 
     }
@@ -44,6 +55,9 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        user=LoginActivity.userInSession;
+
+
 
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
@@ -56,6 +70,18 @@ public class ProfileFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
         ConstraintLayout cl = view.findViewById(R.id.ProfileFragment);
+
+        nombreyedad= view.findViewById(R.id.EdadNombre);
+        try {
+            String nombreYEdad=user.getNombres()+", "+ obtenerEdad(user.getFecha_naci());
+            nombreyedad.setText(nombreYEdad);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+
+
+
         btnEdit = (FloatingActionButton) view.findViewById(R.id.FloatingActionButton);
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,6 +112,22 @@ public class ProfileFragment extends Fragment {
             }
         });
         return view;
+    }
+    public String obtenerEdad(String fecna) throws ParseException {
+
+        SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-DD", Locale.ENGLISH);
+        // fecna= repoUsua.findById(1).get().getFecha_naci();
+        Date fechaNacimiento = sdf.parse(fecna);
+        Date secondDate = sdf.parse("2022-01-01");
+
+        long diff = (secondDate.getTime() - fechaNacimiento.getTime()) / 365;
+
+        TimeUnit time = TimeUnit.DAYS;
+        long diffrence = time.convert(diff, TimeUnit.MILLISECONDS);
+        String age;
+        age = diffrence + "";
+
+        return age;
     }
 
 }

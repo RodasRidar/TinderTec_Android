@@ -7,12 +7,24 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.tindertec.adapter.PictureAdapterRecyclerView;
 import com.example.tindertec.models.Usuario;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,23 +32,21 @@ import java.util.List;
 
 public class Fragment_like extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
-    RecyclerView recyclerUsuario;
-    List<Usuario> listaUsuario;
+    // DECLARO VARIABLES
+    private RecyclerView recyclerUsuario;
+    private ArrayList<Usuario> listaUsuario;
+    private RequestQueue rq;
+    private PictureAdapterRecyclerView adaptadorUsuario;
+
     public Fragment_like() {
-        // Required empty public constructor
+
     }
 
-
-    // TODO: Rename and change types and number of parameters
     public static Fragment_like newInstance(String param1, String param2) {
         Fragment_like fragment = new Fragment_like();
         Bundle args = new Bundle();
@@ -48,30 +58,70 @@ public class Fragment_like extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View vista =inflater.inflate(R.layout.fragment_like, container, false);
 
-        recyclerUsuario=vista.findViewById(R.id.recycleViewListsUser);
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        listaUsuario = new ArrayList<>();
+
+        View vista = inflater.inflate(R.layout.fragment_like, container, false);
+        rq = Volley.newRequestQueue(vista.getContext());
+        cargarPersona();
+        Log.e("Seguimineto", "Paso Cargar Persona");
+        recyclerUsuario = vista.findViewById(R.id.recycleViewListsUser);
         recyclerUsuario.setLayoutManager(new LinearLayoutManager(getContext()));
-        listaUsuario=llenarLista();
-        PictureAdapterRecyclerView adapter = new PictureAdapterRecyclerView(listaUsuario);
-        recyclerUsuario.setAdapter(adapter);
+
+        adaptadorUsuario = new PictureAdapterRecyclerView(listaUsuario);
+        recyclerUsuario.setAdapter(adaptadorUsuario);
+
         return vista;
     }
 
-    private List<Usuario> llenarLista() {
-        List<Usuario> listaUsuario=new ArrayList<>();
-        listaUsuario.add(new Usuario("Gabriela Goyburo","https://images.pexels.com/photos/2119370/pexels-photo-2119370.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1","Computacion e Informatica"));
-        listaUsuario.add(new Usuario("Daniela Barraza","https://images.pexels.com/photos/2739750/pexels-photo-2739750.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1","Publicidad"));
-    return listaUsuario;
+    private void cargarPersona() {
+        String URL = "http://192.168.3.26:8080/MeGustas/Lista";
+        StringRequest requerimiento = new StringRequest(Request.Method.GET, URL, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    Log.e("Seguimineto","Inicio del try");
+                    Usuario usuario=new Usuario();
+                    JSONArray jsonObject = new JSONArray(response);
+                    for (int i = 0; i < jsonObject.length(); i++) {
+                        JSONObject obj = jsonObject.getJSONObject(i);
+                        String nombres = obj.getString("nombres");
+                        String f1 = obj.getString("foto1");
+                       // String carrera = obj.getString("des_carrera");
+                        //usuario.setNom_carrera(carrera);
+                        usuario.setFoto1(f1);
+                        usuario.setNombres(nombres);
+                        listaUsuario.add(usuario);
+                        Log.e("NOmbre:",nombres);
+                        //Log.e("Carrera:",carrera);
+                    }
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Log.e("Seguimineto","Catch");
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+
+        rq.add(requerimiento);
+        Log.e("Seguimineto","RQ.ADD");
     }
+
 }
