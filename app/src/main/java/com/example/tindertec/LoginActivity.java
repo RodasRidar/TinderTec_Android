@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +18,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.tindertec.models.Usuario;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -28,9 +30,9 @@ import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
 
-    Button buttonLogin;
-    EditText loginCorreo;
-    EditText loginContra;
+    private Button buttonLogin;
+    private EditText loginCorreo;
+    private  EditText loginContra;
     public static  Usuario userInSession = null;
 
     @Override
@@ -39,7 +41,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
 
-         loginCorreo= findViewById(R.id.loginCorreo);
+        loginCorreo= findViewById(R.id.loginCorreo);
         loginContra= findViewById(R.id.loginContra);
         userInSession=new Usuario();
         buttonLogin=(Button)findViewById(R.id.buttonLogin);
@@ -57,6 +59,7 @@ public class LoginActivity extends AppCompatActivity {
         //intent.putExtra("Nombre",user.getNombres());
         startActivity(intent);
         userInSession=user;
+
 
     }
 

@@ -16,10 +16,10 @@
         android:usesCleartextTraffic="true"
         >
 
-        <activity android:name=".EditProfileFragment"></activity>
-        <activity android:name=".GalleryFragment" />
+        <activity android:name=".EditProfileFragment"  android:exported="true"></activity>
+        <activity android:name=".GalleryFragment"  android:exported="true"/>
 
-        <activity android:name=".RegistroActivity">
+        <activity android:name=".RegistroActivity"  android:exported="true">
         </activity>
 
         <activity
@@ -27,17 +27,17 @@
             android:theme="@style/Theme.AppCompat.NoActionBar"
             android:exported="true"
             >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
         <activity
             android:name=".VistaCargaActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"
             android:exported="true"
             >
-
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <activity android:name=".paganActivity"

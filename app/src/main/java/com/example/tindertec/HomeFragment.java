@@ -177,12 +177,12 @@ public class HomeFragment extends Fragment{
         //Recuperar lstUsuarios del servidor
         //Llenar   List<ItemModel> con la lista obtenida del servidor.
         List<ItemModel> items = new ArrayList<>();
-        items.add(new ItemModel(R.drawable.sample1, "Richard Rodas", "24", "Lima"));
+        items.add(new ItemModel(R.drawable.sample1, "Pierina Lopez", "20", "Breña"));
         //Cambiar el atributo Imagen , debe ser de tipo String ya que devuelve un String
-        items.add(new ItemModel(R.drawable.sample2, "Marpuah", "20", "Malang"));
-        items.add(new ItemModel(R.drawable.sample3, "Sukijah", "27", "Jonggol"));
-        items.add(new ItemModel(R.drawable.sample4, "Markobar", "19", "Bandung"));
-        items.add(new ItemModel(R.drawable.sample5, "Marmut", "25", "Hutan"));
+        items.add(new ItemModel(R.drawable.sample2, "Julieta del Rio", "20", "Breña"));
+        items.add(new ItemModel(R.drawable.sample3, "Rocio Silva", "21", "Breña"));
+        items.add(new ItemModel(R.drawable.sample4, "Luisa Alvarado", "22", "Breña"));
+        items.add(new ItemModel(R.drawable.sample5, "Maraia Valdez", "21", "Breña"));
 
         //items.add(lista[0])
 

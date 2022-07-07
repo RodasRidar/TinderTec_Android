@@ -9,10 +9,12 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.tindertec.models.Usuario;
 import com.google.android.material.navigation.NavigationView;
+import com.squareup.picasso.Picasso;
 
 import java.util.Objects;
 
@@ -22,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private DrawerLayout dl ;
     private NavigationView nv;
 
+    private Usuario usu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,17 +33,19 @@ public class MainActivity extends AppCompatActivity {
 
         dl=findViewById(R.id.drawerLayout);
         toogle= (ActionBarDrawerToggle) new ActionBarDrawerToggle(this,dl,R.string.open_drawer,R.string.close_drawer);
-
         dl.addDrawerListener(toogle);
         nv =findViewById(R.id.nav_view);
         toogle.syncState();
-
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        String nombreUsu=getIntent().getStringExtra("Nombre");
-        Usuario usu;
+
+
+        //String nombreUsu=getIntent().getStringExtra("Nombre");
+
         usu=LoginActivity.userInSession;
+      //  fotoperfil.setImageURI(usu.getFoto1());
+
         //Toast toast= Toast.makeText(this,"Bienvenido"+nombreUsu,Toast.LENGTH_LONG);
-        Toast toast= Toast.makeText(this,"Bienvenido"+usu.getDescripcion(),Toast.LENGTH_LONG);
+        Toast toast= Toast.makeText(this,"Bienvenido "+usu.getNombres(),Toast.LENGTH_LONG);
         toast.show();
 
 
@@ -66,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
                                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                                 .addToBackStack(null).commit();
                         break;
-
+/*
                     case R.id.nav_matchs:
                         MatchFragment matchFragment = new MatchFragment();
                         getSupportFragmentManager().beginTransaction()
@@ -74,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
                                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                                 .addToBackStack(null).commit();
                         break;
-
+*/
                     case R.id.nav_likes:
                         Fragment_like likesFragment = new Fragment_like();
                         getSupportFragmentManager().beginTransaction()

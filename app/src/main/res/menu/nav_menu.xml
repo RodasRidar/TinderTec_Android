@@ -10,11 +10,7 @@
         android:title="Perfil"
         android:icon="@drawable/ic_profile_24"
         />
-    <item
-        android:id="@+id/nav_matchs"
-        android:title="Matchs"
-        android:icon="@drawable/ic_message_24"
-        />
+
     <item
         android:id="@+id/nav_likes"
         android:title="Me Gustas"

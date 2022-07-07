@@ -3,6 +3,7 @@ package com.example.tindertec;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.loader.content.AsyncTaskLoader;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,6 +20,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.tindertec.models.GeneroInteres;
+import com.example.tindertec.models.Usuario;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -31,30 +33,28 @@ import java.util.Map;
 
 public class EditProfileFragment extends AppCompatActivity {
 
+    Usuario user ;
     Spinner cboInteresGen;
-    Spinner cboCarrera;
+    public Spinner cboCarrera;
     Spinner cboSede;
 
     List<String> lstInteresGen;
     List<String> lstCarrera;
     List<String> lstSede;
 
-    EditText txtNombre, txtInfo, txtInteresGen, txtCarrera, txtSede;
+    EditText txtNombre, txtInfo;
     Button btnGuardar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_edit_profile);
+        user = LoginActivity.userInSession;
 
         //Combos
         cboInteresGen = (Spinner) findViewById(R.id.cboInteresGen);
         cboCarrera = (Spinner) findViewById(R.id.cboCarrera);
         cboSede = (Spinner) findViewById(R.id.cboSede);
-
-        String codInteres=cboInteresGen.getSelectedItemId()+1+"";
-        String codCarrera=cboCarrera.getSelectedItemId()+1+"";
-        String codSede=cboSede.getSelectedItemId()+1+"";
 
         //TxtBoxes
         txtNombre = findViewById(R.id.txtNombre);
@@ -62,17 +62,36 @@ public class EditProfileFragment extends AppCompatActivity {
 
         btnGuardar = findViewById(R.id.btnGuardar);
 
+        try {
+            String nombrePublico = user.getNombres();
+            txtNombre.setText(nombrePublico);
+
+            String infoUsuario = user.getDescripcion();
+            txtInfo.setText(infoUsuario);
+
+
+            cboCarrera.setSelection(user.getCod_carrera());
+            cboInteresGen.setSelection(user.getCod_interes());
+            cboSede.setSelection(user.getCod_sede());
+            Log.e("Seguimiento",""+user.getCod_carrera()+user.getCod_interes()+user.getCod_sede());
+
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
         //Metodos
         cboInteresGenero();
         cboCarrera();
         cboSede();
-        //leerInfo();
-
 
         btnGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                guardarCambios(txtNombre.getText().toString(), txtInfo.getText().toString(), txtInteresGen.getText().toString(), txtCarrera.getText().toString(), txtSede.getText().toString());
+                String codInteres=cboInteresGen.getSelectedItemId()+1+"";
+                String codCarrera=cboCarrera.getSelectedItemId()+1+"";
+                String codSede=cboSede.getSelectedItemId()+1+"";
+                updateUsuario(user.getCod_usu(),txtNombre.getText().toString(),txtInfo.getText().toString(),codInteres,codCarrera, codSede);
             }
         });
 
@@ -85,32 +104,6 @@ public class EditProfileFragment extends AppCompatActivity {
         ArrayAdapter<CharSequence> adapter3= new ArrayAdapter(this,android.R.layout.simple_spinner_item,lstSede);
         cboSede.setAdapter(adapter3);
     }
-
-
-    /*private void leerInfo(){
-        String url = "XXX";
-
-        StringRequest postRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                try {
-                    JSONObject jsonObject = new JSONObject(response);
-
-                    txtNombre.setText(jsonObject.getString("nombres"));
-                    txtInfo.setText(jsonObject.getString("descripcion"));
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.e("error", error.getMessage());
-            }
-        });
-        Volley.newRequestQueue(this).add(postRequest);
-    }*/
 
     private void cboInteresGenero(){
         lstInteresGen = new ArrayList<>();
@@ -146,23 +139,15 @@ public class EditProfileFragment extends AppCompatActivity {
         Log.e("COMBO",lstSede.toString());
     }
 
-    private void guardarCambios( /*final int codigo, */ final String nombres, final String info, final String interes, final String carrera, final String sede){
-        String url = "XXX";
-
-        StringRequest postRequest = new StringRequest(Request.Method.PUT, url, new Response.Listener<String>() {
+    private void updateUsuario(final int codUsuario,final String nombre,final String descripcion, final String codInteres,final String codCarrera,final String codSede){
+        Usuario usu = new Usuario();
+        String url ="http://192.168.3.26:8080/Usuario/Guardar";
+        StringRequest postRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
                     JSONObject jsonObject = new JSONObject(response);
-
-                    txtNombre.setText(jsonObject.getString("nombres"));
-                    txtInfo.setText(jsonObject.getString("descripcion"));
-                    txtInteresGen.setText(jsonObject.getString("cod_interes"));
-                    txtCarrera.setText(jsonObject.getString("cod_carrera"));
-                    txtSede.setText(jsonObject.getString("cod_sede"));
-                    Toast.makeText(EditProfileFragment.this, "INFO: " + response, Toast.LENGTH_LONG).show();
-
-
+                    Toast.makeText(EditProfileFragment.this, "Actualizado.", Toast.LENGTH_LONG).show();
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -170,22 +155,29 @@ public class EditProfileFragment extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.e("error", error.getMessage());
+                Log.e("error",error.getMessage());
             }
         })
         {
-            protected Map<String, String> getParams(){
-                Map<String, String> params = new HashMap<>();
-                params.put("cod_usu", "1");
-                params.put("nombres", nombres);
-                params.put("descripcion", info);
-                params.put("cod_interes", interes);
-                params.put("cod_carrera", carrera);
-                params.put("cod_sede", sede);
+            protected Map<String,String> getParams(){
+                Map<String,String> params = new HashMap<>();
+                params.put("Cod_usu", String.valueOf(codUsuario));
+                params.put("Nombres",nombre);
+                params.put("Descripcion",descripcion);
+                params.put("CodInteres",codInteres);
+                params.put("CodCarrera",codCarrera);
+                params.put("CodSede",codSede);
                 return params;
             }
-        }
-                ;
+        };
         Volley.newRequestQueue(this).add(postRequest);
+        if(postRequest.equals("")){
+            Toast.makeText(this,"No puedes dejar un campo vacío.",Toast.LENGTH_LONG).show();
+        }
+        else{
+            Toast.makeText(this,"Cambios guardados.",Toast.LENGTH_LONG).show();
+
+        }
+
     }
 }
